@@ -1,2 +1,2 @@
 # Procfile
-worker: sh src\main\java\com\OtauBanco\Application
+app: sh src\main\java\com\OtauBanco\Application.java
