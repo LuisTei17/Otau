@@ -1,2 +1,2 @@
 # Procfile
-app: sh src\main\java\com\OtauBanco\Application.java
+web: java -Dserver.port=$PORT -jar target/spring-boot-heroku.jar
