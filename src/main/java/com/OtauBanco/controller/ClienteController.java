@@ -80,10 +80,10 @@ public class ClienteController {
         logger.info("Cadastrando Cliente : {}", Cliente.getNome());
  
         if (repoCliente.findByNomeLike(Cliente.getNome()) != null) {
-            logger.error("Nao foi possivel cadastrar. Um Cliente com a nome {} ja existe", Cliente.getNome());
+            logger.error("Nao foi possivel cadastrar. Um Cliente com o nome {} ja existe", Cliente.getNome());
             return new ResponseEntity(HttpStatus.CONFLICT);
         }
-  
+        
         Bancario banc = repoBancario.getOne(Cliente.getBancario().getId());
         Cliente.setBancario(banc);
         Cliente c = repoCliente.save(Cliente);
