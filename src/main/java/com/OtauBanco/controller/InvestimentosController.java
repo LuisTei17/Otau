@@ -24,7 +24,7 @@ import com.OtauBanco.repository.InvestimentosRepository;
 
 
 	@Controller    
-	@RequestMapping(path="") 
+	@RequestMapping(path="/v1/") 
 	public class InvestimentosController {
 		@Autowired
 		private InvestimentosRepository repoInvestimento;

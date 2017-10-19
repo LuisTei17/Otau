@@ -24,7 +24,7 @@ import com.OtauBanco.repository.ClienteRepository;
 
 
 @Controller    
-@RequestMapping(path="") 
+@RequestMapping(path="/v1/") 
 public class ClienteController {
 	@Autowired
 	private ClienteRepository repoCliente;
@@ -78,7 +78,7 @@ public class ClienteController {
     @RequestMapping(value = "/cliente/", method = RequestMethod.POST)
     public ResponseEntity<?> cadastrarCliente(@RequestBody Cliente Cliente, UriComponentsBuilder ucBuilder) {
         logger.info("Cadastrando Cliente : {}", Cliente.getNome());
- 
+    
         if (repoCliente.findByNomeLike(Cliente.getNome()) != null) {
             logger.error("Nao foi possivel cadastrar. Um Cliente com o nome {} ja existe", Cliente.getNome());
             return new ResponseEntity(HttpStatus.CONFLICT);
@@ -123,7 +123,7 @@ public class ClienteController {
     @RequestMapping(value = "/cliente/{codCliente}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteCliente(@PathVariable("codCliente") Integer codCliente) {
         logger.info("Fetching & Deleting Cliente with id {}", codCliente);
- 
+    
         Cliente Cliente = repoCliente.findOne(codCliente);
         if (Cliente == null) {
             logger.error("Nao foi possivel excluir. Cliente com codCliente {} nao encontrado.", codCliente);
@@ -132,7 +132,6 @@ public class ClienteController {
         repoCliente.delete(codCliente);
         return new ResponseEntity<Cliente>(HttpStatus.NO_CONTENT);
     }
- 
     // ------------------- Excluir todos os clientes-----------------------------
  
     @RequestMapping(value = "/cliente/", method = RequestMethod.DELETE)
@@ -142,5 +141,4 @@ public class ClienteController {
         repoCliente.deleteAll();
         return new ResponseEntity<Cliente>(HttpStatus.NO_CONTENT);
     }
-
 }

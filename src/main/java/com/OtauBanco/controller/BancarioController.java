@@ -23,7 +23,7 @@ import com.OtauBanco.repository.BancarioRepository;
 
 
 @Controller    
-@RequestMapping(path="") 
+@RequestMapping(path="/v1/") 
 public class BancarioController {
 	@Autowired
 	private BancarioRepository repoBancario;

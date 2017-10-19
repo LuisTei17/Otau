@@ -1,0 +1,8 @@
+Turma: 4k
+Alunos: Bruno Robinson e Luís Eduardo de Barros Teixeira
+
+Tipo da empresa: Prestadora de serviços.
+
+
+A nossa empresa é uma prestadora de serviços pois nós criamos aplicativos que visam atender
+demandas sociais através de serviços.
