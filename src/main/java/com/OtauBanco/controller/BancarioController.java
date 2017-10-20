@@ -36,7 +36,6 @@ public class BancarioController {
     public ResponseEntity<List<Bancario>> listaTodosBancarios() {
         logger.info("Buscando todos os bancarios {}");
     	List<Bancario> bancarios = repoBancario.findAll();
-    	System.out.println(bancarios + "!!!!!!!!!!!");
     	if (bancarios.isEmpty()) {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
             // You many decide to return HttpStatus.NOT_FOUND
@@ -56,7 +55,7 @@ public class BancarioController {
         return new ResponseEntity<Bancario>(Bancario, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/Bancario", method = RequestMethod.GET)
+    @RequestMapping(value = "/bancario", method = RequestMethod.GET)
     public ResponseEntity<?> getBancarioBynome(@RequestParam(value="nome") String nome) {
         logger.info("Buscando Bancario com a nome {}", nome);
         Bancario Bancario = repoBancario.findByNomeLike(nome);

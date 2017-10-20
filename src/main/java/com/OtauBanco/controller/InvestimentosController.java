@@ -106,11 +106,12 @@ import com.OtauBanco.repository.InvestimentosRepository;
 	            return new ResponseEntity(HttpStatus.NOT_FOUND);
 	        }
 
-	        Cliente c = repoCliente.getOne(Investimentos.getCliente().getId());
-	        investimentoAtual.setCliente(c);
+	       
 	        investimentoAtual.setTitulo(Investimentos.getTitulo());
 	        investimentoAtual.setRendimento(Investimentos.getRendimento());
-	 
+	        Cliente c = repoCliente.getOne(investimentoAtual.getCliente().getId());
+	        investimentoAtual.setCliente(c);
+	        
 	        repoInvestimento.save(investimentoAtual);
 	        return new ResponseEntity<Investimentos>(investimentoAtual, HttpStatus.OK);
 	    }
