@@ -30,15 +30,16 @@ public class BancarioController {
 
     public static final Logger logger = LoggerFactory.getLogger(BancarioController.class);
     
-    
     // Lista bancarios
+    // Requisita o mapeamento na url /bancario com o método GET
     @RequestMapping(value = "/bancario/", method = RequestMethod.GET)
+    // Cria o método listaTodosBancarios que retorna uma ResponseEntity de uma List de Bancarios
     public ResponseEntity<List<Bancario>> listaTodosBancarios() {
         logger.info("Buscando todos os bancarios {}");
     	List<Bancario> bancarios = repoBancario.findAll();
+    	// Verifica se a List de bancarios está vazia
     	if (bancarios.isEmpty()) {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
-            // You many decide to return HttpStatus.NOT_FOUND
         }
         return new ResponseEntity<List<Bancario>>(bancarios, HttpStatus.OK);
     }

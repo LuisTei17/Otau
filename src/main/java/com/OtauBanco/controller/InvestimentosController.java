@@ -61,6 +61,7 @@ import com.OtauBanco.repository.InvestimentosRepository;
 	        return new ResponseEntity<Investimentos>(Investimentos, HttpStatus.OK);
 	    }
 
+		// Pega pelo nome
 	    @RequestMapping(value = "/investimento", method = RequestMethod.GET)
 	    public ResponseEntity<?> getInvestimentoByTitulo(@RequestParam(value="descricao") String descricao) {
 	        logger.info("Buscando Investimentos com a descricao {}", descricao);
@@ -116,7 +117,7 @@ import com.OtauBanco.repository.InvestimentosRepository;
 	        return new ResponseEntity<Investimentos>(investimentoAtual, HttpStatus.OK);
 	    }
 	 
-	    // ------------------- Excluir um Investimentos-----------------------------------------
+	    // ------------------- Excluir um Investimento-----------------------------------------
 	 
 	    @RequestMapping(value = "/investimento/{codInvestimento}", method = RequestMethod.DELETE)
 	    public ResponseEntity<?> deleteInvestimento(@PathVariable("codInvestimento") Integer codInvestimento) {

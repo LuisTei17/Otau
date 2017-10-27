@@ -34,7 +34,7 @@ public class ClienteController {
     public static final Logger logger = LoggerFactory.getLogger(ClienteController.class);
     
     
-    // Lista bancarios
+    // Lista cliente
     @RequestMapping(value = "/cliente/", method = RequestMethod.GET)
     public ResponseEntity<List<Cliente>> ListaTodosOsClientes() {
         logger.info("Buscando todos os clientes {}");
@@ -61,6 +61,7 @@ public class ClienteController {
         return new ResponseEntity<Cliente>(Cliente, HttpStatus.OK);
     }
 
+    // Pega pelo nome
     @RequestMapping(value = "/cliente", method = RequestMethod.GET)
     public ResponseEntity<?> getClienteByNome(@RequestParam(value="nome") String nome) {
         logger.info("Buscando Cliente pelo nome {} ", nome);
